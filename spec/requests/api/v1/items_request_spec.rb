@@ -8,7 +8,7 @@ RSpec.describe "Items API" do
 
         items = JSON.parse(response.body)
 
-        expect(items.count).to eq(3)
+        expect(items["data"].count).to eq(3)
     end
 
     it "returns one item" do
@@ -18,7 +18,7 @@ RSpec.describe "Items API" do
 
         output = JSON.parse(response.body)
 
-        expect(output["id"]).to eq(item.id)
-        expect(output["name"]).to eq(item.name)
+        expect(output["data"]["attributes"]["id"]).to eq(item.id)
+        expect(output["data"]["attributes"]["name"]).to eq(item.name)
     end
 end
