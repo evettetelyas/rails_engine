@@ -5,12 +5,14 @@ Rails.application.routes.draw do
       resources :merchants, only: [:index, :show] do
         resources :items, module: 'merchants', only: [:index]
         resources :invoices, module: 'merchants', only: [:index]
-        get '/favorite_customer', to: 'merchants/customers#favorite_customer'
+        get '/favorite_customer', to: 'merchants/favorite_customers#show'
+        get '/customers_with_pending_invoices', to: 'merchants/pending_customers#index'
       end
 
       resources :customers, only: [:index, :show] do
         resources :invoices, module: 'customers', only: [:index]
         resources :transactions, module: 'customers', only: [:index]
+        get '/favorite_merchant', to: 'customers/favorite_merchants#show'
       end
 
       resources :invoices, only: [:index, :show] do

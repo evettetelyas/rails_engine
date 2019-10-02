@@ -4,4 +4,8 @@ class Item < ApplicationRecord
     has_many :items, through: :invoice_items
 
     validates_presence_of :name, :description, :unit_price, :merchant_id
+
+    def best_day
+        
+    end
 end
