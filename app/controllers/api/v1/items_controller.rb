@@ -5,7 +5,11 @@ class Api::V1::ItemsController < ApplicationController
     end
 
     def show
-        item = Item.find(params[:id])
+        if params[:id]
+            item = Item.find(params[:id])
+        else
+            item = Item.find(params[:item_id])
+        end
         render json: ItemSerializer.new(item)
     end
 end
