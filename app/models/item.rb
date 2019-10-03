@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     has_many :invoice_items
     has_many :invoices, through: :invoice_items
 
-    validates_presence_of :name, :description, :unit_price, :merchant_id, :id, :created_at, :updated_at
+    validates_presence_of :name, :description, :unit_price, :merchant_id, :id
 
     def best_day
         invoices.joins(:transactions)
