@@ -25,7 +25,7 @@ class Api::V1::Invoices::SearchController < ApplicationController
         elsif params[:id]
             invoices = Invoice.where(id: params[:id])
         elsif params[:customer_id]
-            invoices = Invoice.where(customer_id: params[:customer_id])
+            invoices = Invoice.where(customer_id: params[:customer_id]).order(:id)
         elsif params[:updated_at]
             invoices = Invoice.where(updated_at: params[:updated_at])
         elsif params[:created_at]

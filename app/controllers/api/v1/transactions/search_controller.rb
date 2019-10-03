@@ -21,7 +21,7 @@ class Api::V1::Transactions::SearchController < ApplicationController
         if params[:result]
             transactions = Transaction.where(result: params[:result])
         elsif params[:invoice_id]
-            transactions = Transaction.where(invoice_id: params[:invoice_id])
+            transactions = Transaction.where(invoice_id: params[:invoice_id]).order(:id)
         elsif params[:id]
             transactions = Transaction.where(id: params[:id])
         elsif params[:credit_card_number]

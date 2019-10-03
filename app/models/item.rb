@@ -6,8 +6,13 @@ class Item < ApplicationRecord
     validates_presence_of :name, :description, :unit_price, :merchant_id, :id, :created_at, :updated_at
 
     def best_day
-        dates = ActiveRecord::Base.connection.execute("select count(*), date(invoices.created_at) from invoice_items inner join invoices on invoice_items.invoice_id = invoices.id inner join transactions on invoices.id = transactions.invoice_id where item_id = #{self.id} and transactions.result = 'success' group by date(invoices.created_at) order by count(*) desc, date(invoices.created_at) desc limit 1")
-        dates.values.flatten.last
+        invoices.joins(:transactions)
+        .where("transactions.result = 'success'")
+        .select("sum(invoice_items.quantity), date(invoices.created_at)")
+        .group("date(invoices.created_at)")
+        .order("sum(invoice_items.quantity) desc, date(invoices.created_at) desc")
+        .limit(1)
+        .pluck("date(invoices.created_at)").first
     end
 
     def self.most_revenue(number)

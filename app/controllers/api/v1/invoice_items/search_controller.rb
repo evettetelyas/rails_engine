@@ -25,7 +25,7 @@ class Api::V1::InvoiceItems::SearchController < ApplicationController
         if params[:status]
             invoice_items = InvoiceItem.where(status: params[:status])
         elsif params[:invoice_id]
-            invoice_items = InvoiceItem.where(invoice_id: params[:invoice_id])
+            invoice_items = InvoiceItem.where(invoice_id: params[:invoice_id]).order(:id)
         elsif params[:item_id]
             invoice_items = InvoiceItem.where(item_id: params[:item_id])
         elsif params[:id]

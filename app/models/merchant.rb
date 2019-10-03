@@ -4,21 +4,31 @@ class Merchant < ApplicationRecord
 
     validates_presence_of :name
 
+    # def favorite_customer
+    #     sql = "select count(*), invoices.customer_id from transactions " +
+    #     "inner join invoices on transactions.invoice_id = invoices.id " +
+    #     "where invoices.merchant_id = #{self.id} and transactions.result = 'success' " +
+    #     "group by invoices.customer_id order by count desc limit 1"
+    #     stuff = ActiveRecord::Base.connection.execute(sql)
+    #     stuff.values.flatten.last
+    # end
+
     def favorite_customer
-        sql = "select count(*), invoices.customer_id from transactions " +
-        "inner join invoices on transactions.invoice_id = invoices.id " +
-        "where invoices.merchant_id = #{self.id} and transactions.result = 'success' " +
-        "group by invoices.customer_id order by count desc limit 1"
-        stuff = ActiveRecord::Base.connection.execute(sql)
-        stuff.values.flatten.last
+        invoices.joins(:transactions)
+        .where("transactions.result = 'success'")
+        .select("count(*), invoices.customer_id")
+        .group(:customer_id)
+        .order("count(*) desc")
+        .limit(1)
+        .pluck(:customer_id).first
     end
 
     def pending_customers
-        data_1 = ActiveRecord::Base.connection.execute("select invoices.customer_id from invoices inner join transactions on invoices.id = transactions.invoice_id where transactions.result = 'failed' and invoices.merchant_id = #{self.id} except select invoices.customer_id from transactions inner join invoices on transactions.invoice_id = invoices.id where transactions.result = 'success' and invoices.merchant_id = #{self.id}")
+        failed = ActiveRecord::Base.connection.execute("select invoices.customer_id from invoices inner join transactions on invoices.id = transactions.invoice_id where transactions.result = 'failed' and invoices.merchant_id = #{self.id} except select invoices.customer_id from transactions inner join invoices on transactions.invoice_id = invoices.id where transactions.result = 'success' and invoices.merchant_id = #{self.id}")
 
-        data = ActiveRecord::Base.connection.execute("select invoices.id from invoices left join transactions on invoices.id = transactions.invoice_id where invoices.merchant_id = #{self.id} except select invoices.id from invoices inner join transactions on invoices.id = transactions.invoice_id where invoices.merchant_id = #{self.id}")
-        customer_ids = data_1.values.flatten
-        no_transactions_invoice_ids = data.values.flatten
+        none = ActiveRecord::Base.connection.execute("select invoices.id from invoices left join transactions on invoices.id = transactions.invoice_id where invoices.merchant_id = #{self.id} except select invoices.id from invoices inner join transactions on invoices.id = transactions.invoice_id where invoices.merchant_id = #{self.id}")
+        customer_ids = failed.values.flatten
+        no_transactions_invoice_ids = none.values.flatten
                 
         if no_transactions_invoice_ids.empty?
             customer_ids
