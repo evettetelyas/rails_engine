@@ -5,6 +5,8 @@ class Item < ApplicationRecord
 
     validates_presence_of :name, :description, :unit_price, :merchant_id
 
+    scope :order_by_id, -> { order(:id) }
+
     def best_day
         invoices.joins(:transactions)
         .where("transactions.result = 'success'")

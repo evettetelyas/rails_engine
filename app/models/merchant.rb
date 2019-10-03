@@ -4,14 +4,7 @@ class Merchant < ApplicationRecord
 
     validates_presence_of :name
 
-    # def favorite_customer
-    #     sql = "select count(*), invoices.customer_id from transactions " +
-    #     "inner join invoices on transactions.invoice_id = invoices.id " +
-    #     "where invoices.merchant_id = #{self.id} and transactions.result = 'success' " +
-    #     "group by invoices.customer_id order by count desc limit 1"
-    #     stuff = ActiveRecord::Base.connection.execute(sql)
-    #     stuff.values.flatten.last
-    # end
+    scope :order_by_id, -> { order(:id) }
 
     def favorite_customer
         invoices.joins(:transactions)

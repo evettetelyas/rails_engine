@@ -14,8 +14,8 @@ namespace :import do
 
     CSV.foreach('./db/data/items.csv', headers: true) do |row|
       item = Item.create(row.to_h)
+      Item.record_timestamps = false
       item.update(unit_price: row["unit_price"].to_i * 0.01)
-      item.save
     end
 
     CSV.foreach('./db/data/invoices.csv', headers: true) do |row|
@@ -28,8 +28,8 @@ namespace :import do
 
     CSV.foreach('./db/data/invoice_items.csv', headers: true) do |row|
       ii = InvoiceItem.create(row.to_h)
+      InvoiceItem.record_timestamps = false
       ii.update(unit_price: row["unit_price"].to_i * 0.01)
-      ii.save
     end
   end
 
