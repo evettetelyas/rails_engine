@@ -7,8 +7,7 @@ RSpec.describe "Customers API" do
         get '/api/v1/customers'
 
         customers = JSON.parse(response.body)
-
-        expect(customers.count).to eq(3)
+        expect(customers["data"].count).to eq(3)
     end
 
     it "returns one customer" do
@@ -18,7 +17,7 @@ RSpec.describe "Customers API" do
 
         output = JSON.parse(response.body)
 
-        expect(output["id"]).to eq(customer.id)
-        expect(output["first_name"]).to eq(customer.first_name)
+        expect(output["data"]["attributes"]["id"]).to eq(customer.id)
+        expect(output["data"]["attributes"]["first_name"]).to eq(customer.first_name)
     end
 end

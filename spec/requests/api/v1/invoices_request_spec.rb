@@ -8,7 +8,7 @@ RSpec.describe "Invoices API" do
 
         invoices = JSON.parse(response.body)
 
-        expect(invoices.count).to eq(3)
+        expect(invoices["data"].count).to eq(3)
     end
 
     it "returns one invoice" do
@@ -18,7 +18,7 @@ RSpec.describe "Invoices API" do
 
         output = JSON.parse(response.body)
 
-        expect(output["id"]).to eq(invoice.id)
-        expect(output["merchant_id"]).to eq(invoice.merchant_id)
+        expect(output["data"]["attributes"]["id"]).to eq(invoice.id)
+        expect(output["data"]["attributes"]["merchant_id"]).to eq(invoice.merchant_id)
     end
 end

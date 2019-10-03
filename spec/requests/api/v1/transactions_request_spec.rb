@@ -9,7 +9,7 @@ RSpec.describe "Transactions API" do
 
         transactions = JSON.parse(response.body)
 
-        expect(transactions.count).to eq(3)
+        expect(transactions["data"].count).to eq(3)
     end
 
     it "returns one transaction" do
@@ -20,7 +20,7 @@ RSpec.describe "Transactions API" do
 
         output = JSON.parse(response.body)
 
-        expect(output["id"]).to eq(transaction.id)
-        expect(output["invoice_id"]).to eq(transaction.invoice_id)
+        expect(output["data"]["attributes"]["id"]).to eq(transaction.id)
+        expect(output["data"]["attributes"]["invoice_id"]).to eq(transaction.invoice_id)
     end
 end
