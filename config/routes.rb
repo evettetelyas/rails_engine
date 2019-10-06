@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'merchants/most_revenue', to: 'merchants/most_revenues#index'
       get 'merchants/find', to: 'merchants/search#show'
       get 'merchants/find_all', to: 'merchants/search#index'
+      get 'merchants/random', to: 'merchants/random#show'
       resources :merchants, only: [:index, :show] do
         resources :items, module: 'merchants', only: [:index]
         resources :invoices, module: 'merchants', only: [:index]
@@ -14,9 +15,10 @@ Rails.application.routes.draw do
         get '/customers_with_pending_invoices', to: 'merchants/pending_customers#index'
       end
       
-      get '/items/most_revenue', to: 'items/most_revenues#index'
+      get 'items/most_revenue', to: 'items/most_revenues#index'
       get 'items/find', to: 'items/search#show'
       get 'items/find_all', to: 'items/search#index'
+      get 'items/random', to: 'items/random#show'
       resources :items, only: [:index, :show] do
         resources :invoice_items, module: 'items', only: [:index]
         get '/merchant', to: 'items/merchants#show'
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
 
       get '/customers/find', to: 'customers/search#show'
       get '/customers/find_all', to: 'customers/search#index'
+      get '/customers/random', to: 'customers/random#show'
       resources :customers, only: [:index, :show] do
         resources :invoices, module: 'customers', only: [:index]
         resources :transactions, module: 'customers', only: [:index]
@@ -33,6 +36,7 @@ Rails.application.routes.draw do
 
       get '/invoices/find', to: 'invoices/search#show'
       get '/invoices/find_all', to: 'invoices/search#index'
+      get '/invoices/random', to: 'invoices/random#show'
       resources :invoices, only: [:index, :show] do
         resources :transactions, module: 'invoices', only: [:index]
         resources :invoice_items, module: 'invoices', only: [:index]
@@ -43,12 +47,14 @@ Rails.application.routes.draw do
 
       get '/transactions/find', to: 'transactions/search#show'
       get '/transactions/find_all', to: 'transactions/search#index'
+      get '/transactions/random', to: 'transactions/random#show'
       resources :transactions, only: [:index, :show] do
         get '/invoice', to: 'transactions/invoices#show'
       end
 
       get '/invoice_items/find', to: 'invoice_items/search#show'
       get '/invoice_items/find_all', to: 'invoice_items/search#index'
+      get '/invoice_items/random', to: 'invoice_items/random#show'
       resources :invoice_items, only: [:index, :show] do
         get '/invoice', to: 'invoice_items/invoices#show'
         get '/item', to: 'invoice_items/items#show'

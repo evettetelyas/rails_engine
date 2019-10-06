@@ -27,4 +27,8 @@ class Item < ApplicationRecord
         .limit(number)
         .pluck(:item_id)
     end
+
+    def self.random
+        Item.pluck(:id).sample(1).join
+    end
 end

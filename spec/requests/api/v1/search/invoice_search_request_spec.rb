@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'date'
 
 RSpec.describe Api::V1::Invoices::SearchController do
     describe "invoice single finder" do

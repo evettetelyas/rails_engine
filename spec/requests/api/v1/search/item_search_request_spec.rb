@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'date'
 
 RSpec.describe Api::V1::Items::SearchController do
     describe "item single finder" do
