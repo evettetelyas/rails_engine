@@ -103,6 +103,12 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `/api/v1/invoice_items/find?unit_price=x` returns the first invoice_item with unit_price = x, sorted by id
 * `/api/v1/invoice_items/find?created_at=x` returns the first invoice_item with created_at = x, sorted by id
 * `/api/v1/invoice_items/find?upated_at=x` returns the first invoice_item with updated_at = x, sorted by id
+* `/api/v1/transactions/find?id=x` returns the first transaction with id = x, sorted by id
+* `/api/v1/transactions/find?invoice_id=x` returns the first transaction with invoice_id = x, sorted by id
+* `/api/v1/transactions/find?credit_card_number=x` returns the first transaction with credit_card_number = x, sorted by id
+* `/api/v1/transactions/find?credit_card_exipration_date=x` returns the first transaction with credit_card_expiration_date = x, sorted by id
+* `/api/v1/transactions/find?result=x` returns the first transaction with result = x, sorted by id
+
 
 
 ### Multi Finder
@@ -134,4 +140,8 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `/api/v1/invoice_items/find_all?unit_price=x` returns the invoice_items with unit_price = x, sorted by id
 * `/api/v1/invoice_items/find_all?created_at=x` returns the invoice_items with created_at = x, sorted by id
 * `/api/v1/invoice_items/find_all?upated_at=x` returns the invoice_items with updated_at = x, sorted by id
-
+* `/api/v1/transactions/find_all?id=x` returns the transactions with id = x, sorted by id
+* `/api/v1/transactions/find_all?invoice_id=x` returns the transactions with invoice_id = x, sorted by id
+* `/api/v1/transactions/find_all?credit_card_number=x` returns the transactions with credit_card_number = x, sorted by id
+* `/api/v1/transactions/find_all?credit_card_exipration_date=x` returns the transactions with credit_card_expiration_date = x, sorted by id
+* `/api/v1/transactions/find_all?result=x` returns the transactions with result = x, sorted by id
