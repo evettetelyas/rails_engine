@@ -11,6 +11,6 @@ class Transaction < ApplicationRecord
     end
 
     def self.random
-        Transaction.pluck(:id).sample(1)
+        Transaction.pluck(:id).sample(1).join
     end
 end

@@ -16,6 +16,6 @@ class Customer < ApplicationRecord
     end
 
     def self.random
-        Customer.pluck(:id).sample(1)
+        Customer.pluck(:id).sample(1).join
     end
 end

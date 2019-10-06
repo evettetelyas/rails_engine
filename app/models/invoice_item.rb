@@ -7,6 +7,6 @@ class InvoiceItem < ApplicationRecord
     scope :order_by_id, -> { order(:id) }
 
     def self.random
-        InvoiceItem.pluck(:id).sample(1)
+        InvoiceItem.pluck(:id).sample(1).join
     end
 end

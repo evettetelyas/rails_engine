@@ -54,6 +54,6 @@ class Merchant < ApplicationRecord
     end
 
     def self.random
-        Merchant.pluck(:id).sample(1)
+        Merchant.pluck(:id).sample(1).join
     end
 end

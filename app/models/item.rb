@@ -29,6 +29,6 @@ class Item < ApplicationRecord
     end
 
     def self.random
-        Item.pluck(:id).sample(1)
+        Item.pluck(:id).sample(1).join
     end
 end
