@@ -9,4 +9,8 @@ class Transaction < ApplicationRecord
     def has_exp_date?
         self.credit_card_expiration_date?
     end
+
+    def self.random
+        Transaction.pluck(:id).sample(1)
+    end
 end

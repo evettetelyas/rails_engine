@@ -8,4 +8,9 @@ class Invoice < ApplicationRecord
     validates_presence_of :status
 
     scope :order_by_id, -> { order(:id) }
+
+    def self.random
+        Invoice.pluck(:id).sample(1)
+    end
+
 end
