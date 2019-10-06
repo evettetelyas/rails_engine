@@ -8,7 +8,7 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `bundle`
 * `rake db:{create,migrate}`
 * `rails import:all` (this may take a minute)
-* CSVs are located in `./db/data`_
+* CSVs are located in `./db/data`
 
 ### to run the test suite (spec harness):
 * clone down the spec harness from https://github.com/turingschool/rales_engine_spec_harness into the same directory as rails_engine
