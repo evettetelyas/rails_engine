@@ -21,6 +21,11 @@ class Merchant < ApplicationRecord
 
         none = ActiveRecord::Base.connection.execute("select invoices.id from invoices left join transactions on invoices.id = transactions.invoice_id where invoices.merchant_id = #{self.id} except select invoices.id from invoices inner join transactions on invoices.id = transactions.invoice_id where invoices.merchant_id = #{self.id}")
         customer_ids = failed.values.flatten
+
+        # Customer.find_by_sql("select * from customers inner join invoices on customers.id = invoices.customer_id inner join transactions on invoices.id = transactions.invoice_id where transactions.result = 'failed' and invoices.merchant_id = #{self.id} except select * from customers inner join invoices on customers.id = invoices.customer_id inner join transactions on transactions.invoice_id = invoices.id where transactions.result = 'success' and invoices.merchant_id = #{self.id}").pluck(:customer_id)
+
+        # Invoice.find_by_sql("select * from invoices inner join transactions on invoices.id = transactions.invoice_id where transactions.result = 'failed' and invoices.merchant_id = 77 except select * from invoices inner join transactions on transactions.invoice_id = invoices.id where transactions.result = 'success' and invoices.merchant_id = 77").pluck(:customer_id)
+        
         no_transactions_invoice_ids = none.values.flatten
                 
         if no_transactions_invoice_ids.empty?
