@@ -50,7 +50,7 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `/api/v1/invoice_items/:id/invoice` returns the associated invoice
 * `/api/v1/invoice_items/:id/item` returns the associated item
 * `/api/v1/items/:id/invoice_items` returns a collection of associated invoice items
-* `/api/v1/items/:id/merchan`t returns the associated merchant
+* `/api/v1/items/:id/merchant` returns the associated merchant
 * `/api/v1/transactions/:id/invoice` returns the associated invoice
 * `/api/v1/customers/:id/invoices` returns a collection of associated invoices
 * `/api/v1/customers/:id/transactions` returns a collection of associated transactions
