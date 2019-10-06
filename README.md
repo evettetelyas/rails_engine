@@ -72,23 +72,37 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `/api/v1/transactions/random` returns a random transaction
 
 ### Single Finder
-* `/api/v1/merchants/find?name=x` returns the merchant with name = x 
-* `/api/v1/merchants/find?id=x` returns the merchant with id = x 
-* `/api/v1/merchants/find?created_at=x` returns the merchant with created_at = x 
-* `/api/v1/merchants/find?updated_at=x` returns the merchant with updated_at = x 
-* `/api/v1/customers/find?first_name=x` returns the customer with first_name = x 
-* `/api/v1/customers/find?last_name=x` returns the customer with last_name = x 
-* `/api/v1/customers/find?id=x` returns the customer with id = x 
-* `/api/v1/customers/find?created_at=x` returns the customer with created_at = x 
-* `/api/v1/customers/find?updated_at=x` returns the customer with updated_at = x 
+* `/api/v1/merchants/find?name=x` returns the first merchant with name = x, sorted by id
+* `/api/v1/merchants/find?id=x` returns the first merchant with id = x, sorted by id
+* `/api/v1/merchants/find?created_at=x` returns the first merchant with created_at = x, sorted by id
+* `/api/v1/merchants/find?updated_at=x` returns the first merchant with updated_at = x, sorted by id 
+* `/api/v1/customers/find?first_name=x` returns the first customer with first_name = x, sorted by id 
+* `/api/v1/customers/find?last_name=x` returns the first customer with last_name = x, sorted by id 
+* `/api/v1/customers/find?id=x` returns the first customer with id = x, sorted by id 
+* `/api/v1/customers/find?created_at=x` returns the first customer with created_at = x, sorted by id 
+* `/api/v1/customers/find?updated_at=x` returns the first customer with updated_at = x, sorted by id
+* `/api/v1/items/find?name=x` returns the first item with name = x, sorted by id 
+* `/api/v1/items/find?description=x` returns the first item with description = x, sorted by id 
+* `/api/v1/items/find?merchant_id=x` returns the first item with merchant_id = x, sorted by id 
+* `/api/v1/items/find?id=x` returns the first item with id = x, sorted by id 
+* `/api/v1/items/find?unit_price=x` returns the first item with unit_price = x, sorted by id 
+* `/api/v1/items/find?created_at=x` returns the first item with created_at = x, sorted by id
+* `/api/v1/items/find?created_at=x` returns the first item with updated_at = x, sorted by id
 
 ### Multi Finder
-* `/api/v1/merchants/find_all?name=x` returns all merchants with name = x 
-* `/api/v1/merchants/find_all?id=x` returns all merchants with id = x 
-* `/api/v1/merchants/find_all?created_at=x` returns all merchant with created_at = x 
-* `/api/v1/merchants/find_all?updated_at=x` returns all merchant with updated_at = x 
-* `/api/v1/customers/find_all?first_name=x` returns all customers with first_name = x 
-* `/api/v1/customers/find_all?last_name=x` returns all customers with last_name = x 
-* `/api/v1/customers/find_all?id=x` returns all customers with id = x 
-* `/api/v1/customers/find_all?created_at=x` returns all customers with created_at = x 
-* `/api/v1/customers/find_all?updated_at=x` returns all customer with updated_at = x 
+* `/api/v1/merchants/find_all?name=x` returns all merchants with name = x, sorted by id 
+* `/api/v1/merchants/find_all?id=x` returns all merchants with id = x, sorted by id 
+* `/api/v1/merchants/find_all?created_at=x` returns all merchant with created_at = x, sorted by id 
+* `/api/v1/merchants/find_all?updated_at=x` returns all merchant with updated_at = x, sorted by id 
+* `/api/v1/customers/find_all?first_name=x` returns all customers with first_name = x, sorted by id 
+* `/api/v1/customers/find_all?last_name=x` returns all customers with last_name = x, sorted by id 
+* `/api/v1/customers/find_all?id=x` returns all customers with id = x, sorted by id 
+* `/api/v1/customers/find_all?created_at=x` returns all customers with created_at = x, sorted by id 
+* `/api/v1/customers/find_all?updated_at=x` returns all customer with updated_at = x, sorted by id
+* `/api/v1/items/find_all?name=x` returns the items with name = x, sorted by id 
+* `/api/v1/items/find_all?description=x` returns the items with description = x, sorted by id 
+* `/api/v1/items/find_all?merchant_id=x` returns the items with merchant_id = x, sorted by id 
+* `/api/v1/items/find_all?id=x` returns the items with id = x, sorted by id 
+* `/api/v1/items/find_all?unit_price=x` returns the items with unit_price = x, sorted by id 
+* `/api/v1/items/find_all?created_at=x` returns the items with created_at = x, sorted by id
+* `/api/v1/items/find_all?created_at=x` returns the items with updated_at = x, sorted by id
