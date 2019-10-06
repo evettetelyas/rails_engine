@@ -94,6 +94,12 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `/api/v1/invoices/find?status=x` returns the first invoice with status = x, sorted by id
 * `/api/v1/invoices/find?created_at=x` returns the first invoice with created_at = x, sorted by id
 * `/api/v1/invoices/find?upated_at=x` returns the first invoice with updated_at = x, sorted by id
+* `/api/v1/invoice_items/find?id=x` returns the first invoice_item with id = x, sorted by id 
+* `/api/v1/invoice_items/find?invoice_id=x` returns the first invoice_item with invoice_id = x, sorted by id 
+* `/api/v1/invoice_items/find?quantity=x` returns the first invoice_item with quantity = x, sorted by id 
+* `/api/v1/invoice_items/find?unit_price=x` returns the first invoice_item with unit_price = x, sorted by id
+* `/api/v1/invoice_items/find?created_at=x` returns the first invoice_item with created_at = x, sorted by id
+* `/api/v1/invoice_items/find?upated_at=x` returns the first invoice_item with updated_at = x, sorted by id
 
 
 ### Multi Finder
@@ -119,4 +125,10 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `/api/v1/invoices/find_all?status=x` returns the invoices with status = x, sorted by id
 * `/api/v1/invoices/find_all?created_at=x` returns the invoices with created_at = x, sorted by id
 * `/api/v1/invoices/find_all?upated_at=x` returns the invoices with updated_at = x, sorted by id
+* `/api/v1/invoice_items/find_all?id=x` returns the invoice_items with id = x, sorted by id 
+* `/api/v1/invoice_items/find_all?invoice_id=x` returns the invoice_items with invoice_id = x, sorted by id 
+* `/api/v1/invoice_items/find_all?quantity=x` returns the invoice_items with quantity = x, sorted by id 
+* `/api/v1/invoice_items/find_all?unit_price=x` returns the invoice_items with unit_price = x, sorted by id
+* `/api/v1/invoice_items/find_all?created_at=x` returns the invoice_items with created_at = x, sorted by id
+* `/api/v1/invoice_items/find_all?upated_at=x` returns the invoice_items with updated_at = x, sorted by id
 
