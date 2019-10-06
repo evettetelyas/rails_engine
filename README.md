@@ -76,9 +76,19 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `/api/v1/merchants/find?id=x` returns the merchant with id = x 
 * `/api/v1/merchants/find?created_at=x` returns the merchant with created_at = x 
 * `/api/v1/merchants/find?updated_at=x` returns the merchant with updated_at = x 
+* `/api/v1/customers/find?first_name=x` returns the customer with first_name = x 
+* `/api/v1/customers/find?last_name=x` returns the customer with last_name = x 
+* `/api/v1/customers/find?id=x` returns the customer with id = x 
+* `/api/v1/customers/find?created_at=x` returns the customer with created_at = x 
+* `/api/v1/customers/find?updated_at=x` returns the customer with updated_at = x 
 
 ### Multi Finder
-* `/api/v1/merchants/find_all?name=x` returns the merchant with name = x 
-* `/api/v1/merchants/find_all?id=x` returns the merchant with id = x 
-* `/api/v1/merchants/find_all?created_at=x` returns the merchant with created_at = x 
-* `/api/v1/merchants/find_all?updated_at=x` returns the merchant with updated_at = x 
+* `/api/v1/merchants/find_all?name=x` returns all merchants with name = x 
+* `/api/v1/merchants/find_all?id=x` returns all merchants with id = x 
+* `/api/v1/merchants/find_all?created_at=x` returns all merchant with created_at = x 
+* `/api/v1/merchants/find_all?updated_at=x` returns all merchant with updated_at = x 
+* `/api/v1/customers/find_all?first_name=x` returns all customers with first_name = x 
+* `/api/v1/customers/find_all?last_name=x` returns all customers with last_name = x 
+* `/api/v1/customers/find_all?id=x` returns all customers with id = x 
+* `/api/v1/customers/find_all?created_at=x` returns all customers with created_at = x 
+* `/api/v1/customers/find_all?updated_at=x` returns all customer with updated_at = x 
