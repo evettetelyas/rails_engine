@@ -18,4 +18,9 @@ class Customer < ApplicationRecord
     def self.random
         Customer.pluck(:id).sample(1).join
     end
+
+    def transactions
+        invoice_ids = Invoice.where(customer_id: self.id).pluck("invoices.id")
+        transactions = Transaction.where(invoice_id: invoice_ids)
+    end
 end
