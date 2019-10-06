@@ -22,7 +22,7 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * simplecov is also installed so you can run `open coverage/index.html` to check test coverage
 
 # DB Schema
-![https://i.ibb.co/dgsf5QQ/Screen-Shot-2019-10-06-at-3-51-22-PM.png]
+![db_schema](https://i.ibb.co/dgsf5QQ/Screen-Shot-2019-10-06-at-3-51-22-PM.png)
 
 # Endpionts
 ## Record Endpoints
