@@ -65,7 +65,7 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 * `/api/v1/merchants/:id/customers_with_pending_invoices` returns a collection of customers which have pending (unpaid) invoices
 
 
-## finder endpoints
+## Finder Endpoints
 ### Random Finder
 * `/api/v1/merchants/random` returns a random merchant
 * `/api/v1/customers/random` returns a random customer
