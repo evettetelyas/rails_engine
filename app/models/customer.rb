@@ -2,6 +2,7 @@ class Customer < ApplicationRecord
     validates_presence_of :first_name, :last_name
 
     has_many :invoices
+    has_many :transactions, through: :invoices
 
     scope :order_by_id, -> { order(:id) }
 
@@ -17,10 +18,5 @@ class Customer < ApplicationRecord
 
     def self.random
         Customer.pluck(:id).sample(1).join
-    end
-
-    def transactions
-        invoice_ids = Invoice.where(customer_id: self.id).pluck("invoices.id")
-        transactions = Transaction.where(invoice_id: invoice_ids)
     end
 end
