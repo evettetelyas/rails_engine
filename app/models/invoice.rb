@@ -9,8 +9,4 @@ class Invoice < ApplicationRecord
 
     scope :order_by_id, -> { order(:id) }
 
-    def self.random
-        Invoice.pluck(:id).sample(1).join
-    end
-
 end

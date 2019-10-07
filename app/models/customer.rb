@@ -16,7 +16,4 @@ class Customer < ApplicationRecord
         .pluck(:merchant_id).first
     end
 
-    def self.random
-        Customer.pluck(:id).sample(1).join
-    end
 end

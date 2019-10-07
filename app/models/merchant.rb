@@ -58,7 +58,4 @@ class Merchant < ApplicationRecord
         .pluck("sum(quantity * unit_price)")
     end
 
-    def self.random
-        Merchant.pluck(:id).sample(1).join
-    end
 end
