@@ -12,6 +12,7 @@ Rails(Rales) engine is an api built to share information gathered from the sales
 
 ### to run the test suite (spec harness):
 * clone down the spec harness from https://github.com/turingschool/rales_engine_spec_harness into the same directory as rails_engine
+* run `rails s` in `rails_engine`
 * cd into `rails_engine_spec_harness`
 * `rake`
 * smile as the green dots populate the terminal window
