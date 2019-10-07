@@ -30,10 +30,10 @@ RSpec.describe Api::V1::Merchants do
         end
 
         it "returns total revenue for x day across all merchants" do
-            date = DateTime.now.strftime('%F')
+            date = Time.now.utc.strftime('%F')
             get "http://localhost:3000/api/v1/merchants/revenue?date=#{date}"
             data = JSON.parse(response.body)
-            
+
             expect(data["data"]["attributes"]["total_revenue"]).to eq("13.98")
         end
 

@@ -26,7 +26,7 @@ RSpec.describe Api::V1::Items do
             get "http://localhost:3000/api/v1/items/#{@item.id}/best_day"
             data = JSON.parse(response.body)
 
-            expect(data["data"]["attributes"]["best_day"]).to eq(DateTime.now.strftime('%F'))
+            expect(data["data"]["attributes"]["best_day"]).to eq(Time.now.utc.strftime('%F'))
         end
     end
 end
